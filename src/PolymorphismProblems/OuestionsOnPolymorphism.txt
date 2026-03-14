@@ -1,0 +1,217 @@
+Notes:
+ In method overloading, method selection depends on reference type compatibility, not actual object type.
+
+ Q.In a class, one method has two overloaded forms. One form is defined as static and another form is defined as non-static. Is that method properly overloaded?
+ Ans: Method Overloading Depends on Method Signature only not Static or Non Static Context.
+
+ Q.In the below class, is ‘method’ overloaded or duplicated?
+
+   public class MainClass
+   {
+       void method(int ... a)
+       {
+           System.out.println(1);
+       }
+
+       void method(int[] a)
+       {
+           System.out.println(2);
+       }
+   }
+Ans: Compiler Internally converts var-args method into Array.
+
+Q. Method signature consists of
+
+  a) Method Name, Return Type and Number Of Arguments
+  b) Access Modifier, Method Name and Types Of Arguments
+  c) Method Name, Number Of Arguments, Types Of Arguments and Order Of Arguments
+  d) Return Type, Access Modifier and Order Of Arguments
+Ans: c)Method Name, Number Of Arguments, Types Of Arguments and Order Of Arguments.
+
+Q. In the below Class X, is ‘method’ properly overloaded?
+  class X
+  {
+      int method(int i, int d)
+      {
+          return i+d;
+      }
+
+      static int method(int i, double d)
+      {
+          return (int)(i+d);
+      }
+
+      double method(double i, int d)
+      {
+          return i+d;
+      }
+
+      static double method(double i, double d)
+      {
+          return i+d;
+      }
+  }
+Ans: Yes It is Properly Overloaded
+
+Q.Method Overriding shows static polymorphism. True or false?
+Ans: False, because Resolution takes place at runtime so it is Dynamic Polymorphism.
+
+Q.In a class, One method has 4 overloaded forms. All have different access modifiers (private, default, protected and public). Is that method properly overloaded?
+Ans: Yes they are properly Overloaded because overloading depends on only Method Overloading.
+
+Q.Will you find out the error in the below code?
+
+  class X
+  {
+      static void methodOfX()
+      {
+          System.out.println("Class X");
+      }
+  }
+
+  class Y extends X
+  {
+      @Override- Annotation is Wrong Here.
+      static void methodOfX()
+      {
+          System.out.println("Class X");
+      }
+
+  	psvm(String[] args){
+  	}
+  }
+  Ans: Static Method Cannot be Overriden because It Method Hiding not Overriding.
+
+  Q.What possible types a ‘superClassMethod()’ of below ‘SuperClass’ can return when it is overridden in the sub class?
+
+    class SuperClass
+    {
+        Object superClassMethod()
+        {
+            return new Object();
+        }
+    }
+Ans: Every Child Class Of Object or Same Object type/ Unrelated type or Primitive types are not valid.
+
+Q.Can we override protected method as private?
+Ans: No we can't override because We can't restrict the scope child method but we can Increase it.
+
+Q.What actually polymorphism means in Java?
+Ans : One Method can have different forms, the same method name can perform different operations depending on parameters or object type.
+
+Q.Does Java support operator overloading?
+Ans:No because Operators have their specific behaviour except for string Concatination.
+
+Q.Why method overriding is called late binding or dynamic binding?
+Ans: Because the method call is resolued takes place at Runtime(It depends on Object Type not on reference Type)
+
+Q. How do compiler differentiate overloaded methods from duplicate methods?
+Ans: If the Method Signature is Same in same class then it is considered as duplicate method.
+     If the two methods in the same class have different method Signature then it is considered as Overloading method otherwise it is considered as duplicate methods.
+
+Q.final methods can be overridden but can’t be overloaded? True or False?
+Ans: False because final method can be overloade but cannot be Overriden.
+
+Q.Constructor overloading is also one form of the polymorphism. Yes or No?
+Ans : yes.
+
+Q.What is the difference between static binding and dynamic binding?
+Ans: Static binding happens when we overloading a method and it is  Compile time and Dynamic binding happen when we override a method and it is at runtime.
+
+Q.Can we access super class version of overridden method in the sub class. If yes, how?
+Ans : Yes by using Super keyword.
+
+Q.In the below example, Class B extends Class A. Which method of Class A is not properly overridden in class B?
+
+
+class A
+{
+    void methodOne(Double D) // Wrapper Double.
+    {
+
+    }
+
+    int methodTwo(Integer I)
+    {
+        return I;
+    }
+}
+
+class B extends A
+{
+    @Override
+    void methodOne(double d)// Primitive double instead of Wrapper double , This method is not overloaded.
+    {
+
+    }
+
+    @Override
+    int methodTwo(Integer I)
+    {
+        return (int)1.1;
+    }
+}
+
+Q. What are the possible access modifiers a protected method can have if it is overridden in the sub class?
+Ans: Protected and Public
+
+Q.Can you list out the differences between method overloading and method overriding?
+
+Ans:        Overloading                                                Overriding
+Same Method name but different Parameter List                     Same Method name and Parameter list
+Compile time/Early binding/Static Polymorphism                    Runtime time/Late binding/Dynamic Polymorphism
+Can have any Access Modifier                                      Child class method should not be More Restrictive than Parent Class(Less Restrictive)
+Return Type does not have any restriction                         Return should be same (Primitive) and Covarient for refernce type(Object)
+
+Q.In the below example, is “methodOfX()” correctly overridden in the sub classes of Class X?
+  class X
+  {
+      void methodOfX()// Default
+      {
+          System.out.println("Class X");
+      }
+  }
+
+  class Y extends X
+  {
+      @Override
+      protected void methodOfX()
+      {
+          System.out.println("Class Y");
+      }
+  }
+
+  class Z extends Y
+  {
+      @Override
+      public void methodOfX()
+      {
+          System.out.println("Class Z");
+      }
+  }
+
+Q.What will be the outcome of the following program?
+  class ABC
+  {
+      void methodABC()
+      {
+          new XYZ().methodXYZ();
+      }
+  }
+
+  class XYZ extends ABC
+  {
+      void methodXYZ()
+      {
+          methodABC();
+      }
+  }
+
+  public class MainClass
+  {
+      public static void main(String[] args)
+      {
+          new ABC().methodABC();
+      }
+  }
+Ans: StackOverflowError.
