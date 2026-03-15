@@ -3,12 +3,12 @@ package PatternPrograms;
 public class Rhombus {
     public static void RhombusPattern(int n){
         int i,j;
-        for(i=0;i<n;i++){
-            for(j=0;j<=n-i;j++){
+        for(i=1;i<n;i++){
+            for(j=1;j<=n-i;j++){
                 System.out.print(" ");
 
             }
-            for(j=0;j<n;j++){
+            for(j=1;j<n;j++){
                 System.out.print("*");
             }
             System.out.println();
