@@ -1,6 +1,6 @@
 package MultiThreading.Enhancement;
 
-public class THreadGroupMethod {
+public class ThreadGroupMethod {
     public static void main(String[] args) {
         ThreadGroup system = Thread.currentThread().getThreadGroup().getParent();
         Thread[] t =new Thread[system.activeCount()];
