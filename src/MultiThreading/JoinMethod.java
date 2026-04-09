@@ -1,9 +1,11 @@
 package MultiThreading;
 class MyThread2 extends Thread {
+    static Thread mt;
     public void run() {
         for (int i = 0; i < 10; i++) {
             System.out.println("Child Thread");
             try {
+                mt.join();
                 Thread.sleep(2000);
 
 
@@ -15,9 +17,10 @@ class MyThread2 extends Thread {
 }
     public class JoinMethod {
         public static void main(String[] args) throws InterruptedException {
+            MyThread2.mt = Thread.currentThread();
             MyThread2 t=new MyThread2();
             t.start();
-            t.join(10000);
+//            t.join(10000);
             for(int i=0;i<10;i++){
                 System.out.println("Main Thread");
             }
