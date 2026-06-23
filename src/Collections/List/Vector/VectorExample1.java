@@ -23,8 +23,6 @@ public class VectorExample1 {
         v.copyInto(arr);
         for (String arr1 : arr) {
             System.out.println(arr1);
-
-
         }
         Vector v1 = new Vector(5,10);
         v1.add(1);
@@ -63,12 +61,6 @@ public class VectorExample1 {
         System.out.println("Equivalent String: "+str);
         v.toArray();
         System.out.println(v);
-
-
-
-
-
-
 
     }
 }

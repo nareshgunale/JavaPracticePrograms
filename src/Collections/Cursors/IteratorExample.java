@@ -13,6 +13,7 @@ public class IteratorExample {
         }
         System.out.println(al);
         Iterator itr = al.iterator();
+
         while(itr.hasNext()){
             Integer i = (Integer) itr.next();
             System.out.println(i);

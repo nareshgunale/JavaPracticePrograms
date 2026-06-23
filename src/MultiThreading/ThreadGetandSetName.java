@@ -1,5 +1,5 @@
 package MultiThreading;
-class MyThread extends Thread{
+class MyThread extends Thread implements Runnable{
 
 }
 public class ThreadGetandSetName {
