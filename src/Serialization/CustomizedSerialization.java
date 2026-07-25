@@ -6,7 +6,7 @@ class Account implements Serializable{
     String username = "Sumit";
     transient String password = "07";
     //transient int pin = 1234;
-    private void writeObject(ObjectOutputStream os) throws Exception{
+    private void writeObject(ObjectOutputStream os) throws IOException{
         os.defaultWriteObject();
         String encrypPassword ="123"+password;
         //int epin=4444+pin;
@@ -14,7 +14,7 @@ class Account implements Serializable{
         //os.writeObject(epin);
 
     }
-    private void readObject(ObjectInputStream is) throws Exception{
+    private void readObject(ObjectInputStream is) throws IOException,ClassNotFoundException{
         is.defaultReadObject();
         String encrpPassword = (String)is.readObject();
         password=encrpPassword.substring(3);
