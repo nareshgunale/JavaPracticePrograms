@@ -29,6 +29,10 @@ public class Student {
         return specialization;
     }
 
+    public void setPercentage(double percentage) {
+        this.percentage = percentage;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
